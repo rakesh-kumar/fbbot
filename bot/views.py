@@ -172,7 +172,7 @@ class UserTopic:
             sender = Sender.objects.get(messengerSenderID=senderID)
             sender.topic = topic
             sender.save()
-        except: pass
+        except:Sender.objects.create(messengerSenderID=senderID,topic = topic)
     
     def update(self, *args, **kwargs):
         for k, v in dict(*args, **kwargs).items():
@@ -193,7 +193,7 @@ class UserSession:
 
     def __getitem__(self, senderID):
         try:
-            return self.objClass(Sender.objects.get(messengerSenderID=senderID).messengerSenderID)
+            return self.objClass(Sender.objects.get(messengerSenderID=senderID))
         except:raise KeyError(key)
 
     def __setitem__(self, senderID, val):
