@@ -172,7 +172,7 @@ class UserTopic:
             sender = Sender.objects.get(messengerSenderID=senderID)
             sender.topic = topic
             sender.save()
-        except:Sender.objects.create(messengerSenderID=senderID,topic = topic)
+        except: pass
     
     def update(self, *args, **kwargs):
         for k, v in dict(*args, **kwargs).items():
