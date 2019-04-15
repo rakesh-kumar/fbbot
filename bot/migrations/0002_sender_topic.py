@@ -11,11 +11,11 @@ class Migration(migrations.Migration):
         ('bot', '0001_initial'),
     ]
 
-    operations = [
-        migrations.AddField(
-            model_name='sender',
-            name='topic',
-            field=models.TextField(default='general'),
-            preserve_default=False,
-        ),
-    ]
+    # operations = [
+    #     migrations.AddField(
+    #         model_name='sender',
+    #         name='topic',
+    #         field=models.TextField(default='general'),
+    #         preserve_default=False,
+    #     ),
+    # ]
