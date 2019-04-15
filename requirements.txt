@@ -1,0 +1,6 @@
+django==2.0.0
+messengerbot
+wikipedia
+ChatbotAI
+gunicorn
+django-heroku
