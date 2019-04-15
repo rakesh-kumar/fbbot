@@ -19,6 +19,6 @@ from bot.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',index,name="home"),
-    url(r'^webhook',webhook,name="webhook"),
+    # url(r'^$',index,name="home"),
+    # url(r'^webhook',webhook,name="webhook"),
 ]
