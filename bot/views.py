@@ -12,7 +12,7 @@ import pdb
 
 
 access_token = "EAAWXPyZB4sY8BAPCl5W94gGlgzxq5FDKaZCNPIajVardmXX8yjaL5HFzooTB1zIlu30cTLp5AqlprRcHzfKRnXRG91uubH4CZC1mPkT1QrgoKCEZBdiNWu0Qf4pQPU8tSFSnHFmdAMqFPafCZA7eTnroZAmMKZCZBlOEZBj1dIW2NvoWZAvGqpkAbH" 
-VALIDATION_TOKEN="https://bot-up-app.herokuapp.com"
+VALIDATION_TOKEN="https://fb-bot-app-2.herokuapp.com"
 api_key = "AIzaSyD2mzDa-VyteLTiJx9fxj3clFNvMKir5B8"
 
 
