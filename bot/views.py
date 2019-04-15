@@ -8,11 +8,12 @@ import json,wikipedia,urllib,os
 from chatbot import Chat,reflections,multiFunctionCall
 from .models import *
 from django.db.utils import OperationalError
+import pdb
 
 
-access_token = `< Access token >` 
-VALIDATION_TOKEN=`< VALIDATION_TOKEN >`
-api_key = `< API key >`
+access_token = "EAAWXPyZB4sY8BAPCl5W94gGlgzxq5FDKaZCNPIajVardmXX8yjaL5HFzooTB1zIlu30cTLp5AqlprRcHzfKRnXRG91uubH4CZC1mPkT1QrgoKCEZBdiNWu0Qf4pQPU8tSFSnHFmdAMqFPafCZA7eTnroZAmMKZCZBlOEZBj1dIW2NvoWZAvGqpkAbH" 
+VALIDATION_TOKEN="https://bot-up-app.herokuapp.com"
+api_key = "AIzaSyD2mzDa-VyteLTiJx9fxj3clFNvMKir5B8"
 
 
 # Manully initialise client
@@ -97,7 +98,7 @@ class UserMemory:
             Memory.objects.create(sender__messengerSenderID=self.senderID,key=key,value=value)
 
     def update(self, *args, **kwargs):
-        for k, v in dict(*args, **kwargs).iteritems():
+        for k, v in dict(*args, **kwargs).items():
             self[k] = v
     
     def __delitem__(self, key):
@@ -174,7 +175,7 @@ class UserTopic:
         except:Sender.objects.create(messengerSenderID=senderID,topic = topic)
     
     def update(self, *args, **kwargs):
-        for k, v in dict(*args, **kwargs).iteritems():
+        for k, v in dict(*args, **kwargs).items():
             self[k] = v
     
     def __delitem__(self, senderID):
@@ -200,7 +201,7 @@ class UserSession:
         self.objClass(senderID,val)
 
     def update(self, *args, **kwargs):
-        for k, v in dict(*args, **kwargs).iteritems():
+        for k, v in dict(*args, **kwargs).items():
             self[k] = v
     
     def __delitem__(self, senderID):
