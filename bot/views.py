@@ -12,7 +12,7 @@ import pdb
 
 
 access_token = "EAAWXPyZB4sY8BAPCl5W94gGlgzxq5FDKaZCNPIajVardmXX8yjaL5HFzooTB1zIlu30cTLp5AqlprRcHzfKRnXRG91uubH4CZC1mPkT1QrgoKCEZBdiNWu0Qf4pQPU8tSFSnHFmdAMqFPafCZA7eTnroZAmMKZCZBlOEZBj1dIW2NvoWZAvGqpkAbH" 
-VALIDATION_TOKEN="/?hub.mode=subscribe&hub.challenge=1418582739&hub.verify_token=https%3A%2F%2Ffb-bot-app-2.herokuapp.com%2F"
+VALIDATION_TOKEN="test_token"
 api_key = "AIzaSyD2mzDa-VyteLTiJx9fxj3clFNvMKir5B8"
 
 
