@@ -197,7 +197,7 @@ class UserSession:
         except:raise KeyError(key)
 
     def __setitem__(self, senderID, val):
-        Sender.objects.get_or_create(messengerSenderID=senderID)
+        Sender.objects.create(messengerSenderID=senderID)
         self.objClass(senderID,val)
 
     def update(self, *args, **kwargs):
