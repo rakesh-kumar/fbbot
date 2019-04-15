@@ -29,21 +29,21 @@ class Migration(migrations.Migration):
                 ('value', models.TextField()),
             ],
         ),
-        # migrations.CreateModel(
-        #     name='Sender',
-        #     fields=[
-        #         ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-        #         ('messengerSenderID', models.TextField()),
-        #     ],
-        # ),
-        # migrations.AddField(
-        #     model_name='memory',
-        #     name='sender',
-        #     field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bot.Sender'),
-        # ),
-        # migrations.AddField(
-        #     model_name='conversation',
-        #     name='sender',
-        #     field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bot.Sender'),
-        # ),
+        migrations.CreateModel(
+            name='Sender',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('messengerSenderID', models.TextField()),
+            ],
+        ),
+        migrations.AddField(
+            model_name='memory',
+            name='sender',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bot.Sender'),
+        ),
+        migrations.AddField(
+            model_name='conversation',
+            name='sender',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bot.Sender'),
+        ),
     ]
