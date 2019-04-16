@@ -263,7 +263,7 @@ def respondToClient(senderID,message):
 def chathandler(request):
     data = json.loads(request.body)
     # Send text message
-    for i in data["entry"][0]:
+    for i in data["entry"]:
         # pdb.set_trace()
         if "message" in i:
             senderID=i["sender"]['id']
