@@ -11,9 +11,9 @@ from django.db.utils import OperationalError
 import pdb
 
 
-access_token = "EAAWXPyZB4sY8BAPCl5W94gGlgzxq5FDKaZCNPIajVardmXX8yjaL5HFzooTB1zIlu30cTLp5AqlprRcHzfKRnXRG91uubH4CZC1mPkT1QrgoKCEZBdiNWu0Qf4pQPU8tSFSnHFmdAMqFPafCZA7eTnroZAmMKZCZBlOEZBj1dIW2NvoWZAvGqpkAbH" 
+access_token = "EAAFr2PNn8fsBADwAAFALZABJXJzANqYZA9t6O9WUV85qBuZCfVhveYg0geOSDsP48oAO2u2KLx3xx40Aac3PZAypaNZBlIfCRUGVUaSSIjAHbxTa8xINJWbZAfhIXRx37QEh80RSvORJr0dKzw2hbJlWMInrZBpbIfBG6dRBZCCiuFrVLvnMLGFX" 
 VALIDATION_TOKEN="test_token"
-api_key = "AIzaSyD2mzDa-VyteLTiJx9fxj3clFNvMKir5B8"
+api_key = "b2983ea0f98a6e96191213c7aa1ac3e4"
 
 
 # Manully initialise client
