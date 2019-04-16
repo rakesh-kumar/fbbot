@@ -265,7 +265,7 @@ def chathandler(request):
     print(request.body)
     print(data)
     # Send text message
-    for i in data["entry"][0]['messesing']:
+    for i in data["entry"][0]:
         # pdb.set_trace()
         if "message" in i:
             senderID=i["sender"]['id']
