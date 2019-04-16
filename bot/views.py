@@ -292,7 +292,7 @@ def chathandler(request):
     return HttpResponse("It's working")
 
 @csrf_exempt
-def webhook(request):
+def webhook(self, request):
     if request.method!="POST":
         #Validate URL
         # pdb.set_trace()
