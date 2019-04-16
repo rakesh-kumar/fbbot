@@ -294,10 +294,16 @@ def webhook(request):
     if request.method!="POST":
         #Validate URL
         # pdb.set_trace()
-        print(request.GET['hub.verify_token', 'test_token'])
-        if request.GET['hub.verify_token'] == VALIDATION_TOKEN:
+        print(request.GET['hub.verify_token'])
+        try:
+            token=self.request.GET['hub.verify_token']
+        except MultiValueDictKeyError:
+            token=False
+
+        if token==VERIFY_TOKEN:
             return HttpResponse(request.GET['hub.challenge'])
-        return HttpResponse("Failed validation. Make sure the validation tokens match.")
+        else:
+            return HttpResponse("Error invalid token")
     return chathandler(request)
 
 
