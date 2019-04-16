@@ -281,7 +281,7 @@ def webhook(request):
         if request.GET['hub.verify_token'] == VALIDATION_TOKEN:
             return HttpResponse(request.GET['hub.challenge'])
         return HttpResponse("Failed validation. Make sure the validation tokens match.")
-    return chathandler(request)
+    return HttpResponse("validated.")
 
 
 
