@@ -9,8 +9,6 @@ from chatbot import Chat,reflections,multiFunctionCall
 from .models import *
 from django.db.utils import OperationalError
 import pdb
-from django.utils.datastructures import MultiValueDictKeyError
-
 
 
 access_token = "EAAFr2PNn8fsBALeti5LYWolfbITJobJbTYvfOp4aWl0Tem5eUTZCv2EkgpvxhYVHBVMLRW0d9TXtnVLKbIGocNgyHkdhm3B7JxaZCL7ZAv61AMHWUKhMYq3sTqrGzPFpBwhVPmIcplg7lWVY8rny7kGYLYYXONQKudUzI1ZBaXEJPuWJpqoC" 
@@ -296,16 +294,10 @@ def webhook(request):
     if request.method!="POST":
         #Validate URL
         # pdb.set_trace()
-        # print(request.GET['hub.verify_token'])
-        try:
-            token=request.GET['hub.verify_token']
-        except MultiValueDictKeyError:
-            token=False
-
-        if token==VALIDATION_TOKEN:
+        print(request.GET['hub.verify_token'])
+        if request.GET['hub.verify_token'] == VALIDATION_TOKEN:
             return HttpResponse(request.GET['hub.challenge'])
-        else:
-            return HttpResponse("Error invalid token")
+        return HttpResponse("Failed validation. Make sure the validation tokens match.")
     return chathandler(request)
 
 
