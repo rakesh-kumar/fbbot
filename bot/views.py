@@ -263,7 +263,7 @@ def respondToClient(senderID,message):
 def chathandler(request):
     data = json.loads(request.body)
     # Send text message
-    for i in data["entry"][0]["messaging"]:
+    for i in data["entry"][0]:
         # pdb.set_trace()
         if "message" in i:
             senderID=i["sender"]['id']
@@ -281,7 +281,7 @@ def webhook(request):
         if request.GET['hub.verify_token'] == VALIDATION_TOKEN:
             return HttpResponse(request.GET['hub.challenge'])
         return HttpResponse("Failed validation. Make sure the validation tokens match.")
-    return HttpResponse("validated.")
+    return chathandler(request)
 
 
 
