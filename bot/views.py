@@ -302,7 +302,7 @@ def webhook(request):
         except MultiValueDictKeyError:
             token=False
 
-        if token==VERIFY_TOKEN:
+        if token==VALIDATION_TOKEN:
             return HttpResponse(request.GET['hub.challenge'])
         else:
             return HttpResponse("Error invalid token")
