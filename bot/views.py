@@ -11,7 +11,7 @@ from django.db.utils import OperationalError
 import pdb
 
 
-access_token = "EAAFr2PNn8fsBADwAAFALZABJXJzANqYZA9t6O9WUV85qBuZCfVhveYg0geOSDsP48oAO2u2KLx3xx40Aac3PZAypaNZBlIfCRUGVUaSSIjAHbxTa8xINJWbZAfhIXRx37QEh80RSvORJr0dKzw2hbJlWMInrZBpbIfBG6dRBZCCiuFrVLvnMLGFX" 
+access_token = "EAAFr2PNn8fsBALeti5LYWolfbITJobJbTYvfOp4aWl0Tem5eUTZCv2EkgpvxhYVHBVMLRW0d9TXtnVLKbIGocNgyHkdhm3B7JxaZCL7ZAv61AMHWUKhMYq3sTqrGzPFpBwhVPmIcplg7lWVY8rny7kGYLYYXONQKudUzI1ZBaXEJPuWJpqoC" 
 VALIDATION_TOKEN="test_token"
 api_key = "b2983ea0f98a6e96191213c7aa1ac3e4"
 
@@ -262,8 +262,10 @@ def respondToClient(senderID,message):
 
 def chathandler(request):
     data = json.loads(request.body)
+    print(request.body)
+    print(data)
     # Send text message
-    for i in data["entry"]:
+    for i in data["entry"][0]['messesing']:
         # pdb.set_trace()
         if "message" in i:
             senderID=i["sender"]['id']
