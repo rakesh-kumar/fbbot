@@ -294,7 +294,7 @@ def webhook(request):
     if request.method!="POST":
         #Validate URL
         # pdb.set_trace()
-        print(request.GET['hub.verify_token'])
+        # print(request.GET['hub.verify_token'])
         try:
             token=self.request.GET['hub.verify_token']
         except MultiValueDictKeyError:
