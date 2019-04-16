@@ -292,13 +292,13 @@ def chathandler(request):
     return HttpResponse("It's working")
 
 @csrf_exempt
-def webhook(self, request):
+def webhook(request):
     if request.method!="POST":
         #Validate URL
         # pdb.set_trace()
         # print(request.GET['hub.verify_token'])
         try:
-            token=self.request.GET['hub.verify_token']
+            token=request.GET['hub.verify_token']
         except MultiValueDictKeyError:
             token=False
 
