@@ -294,7 +294,7 @@ def webhook(request):
     if request.method!="POST":
         #Validate URL
         # pdb.set_trace()
-        print(request.GET['hub.verify_token'])
+        print(request.GET['hub.verify_token', 'test_token'])
         if request.GET['hub.verify_token'] == VALIDATION_TOKEN:
             return HttpResponse(request.GET['hub.challenge'])
         return HttpResponse("Failed validation. Make sure the validation tokens match.")
