@@ -260,34 +260,34 @@ def respondToClient(senderID,message):
     messenger.send(response)
     del chat.attr[senderID]
 
-# def chathandler(request):
-#     data = json.loads(request.body)
-#     print(data)
-#     # Send text message
-#     for i in data["entry"][0]:
-#         # pdb.set_trace()
-#         if "message" in i:
-#             senderID=i["sender"]['id']
-#             if not senderID in chat.conversation:
-#                 #Initiate user info
-#                 initiateChat(senderID)
-#             respondToClient(senderID,i["message"]["text"])
-#     return HttpResponse("It's working")
-
 def chathandler(request):
     data = json.loads(request.body)
     print(data)
-    senderID=data["entry"][0]["messaging"][0]["sender"]['id']
-    recipient = messages.Recipient(recipient_id=senderID)
-    print(recipient)
     # Send text message
-    for i in data["entry"][0]["messaging"]:
-        if "message" in i: 
+    for i in data["entry"][0]:
+        # pdb.set_trace()
+        if "message" in i:
+            senderID=i["sender"]['id']
             if not senderID in chat.conversation:
                 #Initiate user info
-                initiateChat()
+                initiateChat(senderID)
             respondToClient(senderID,i["message"]["text"])
     return HttpResponse("It's working")
+
+# def chathandler(request):
+#     data = json.loads(request.body)
+#     print(data)
+#     senderID=data["entry"][0]["messaging"][0]["sender"]['id']
+#     recipient = messages.Recipient(recipient_id=senderID)
+#     print(recipient)
+#     # Send text message
+#     for i in data["entry"][0]["messaging"]:
+#         if "message" in i: 
+#             if not senderID in chat.conversation:
+#                 #Initiate user info
+#                 initiateChat()
+#             respondToClient(senderID,i["message"]["text"])
+#     return HttpResponse("It's working")
 
 @csrf_exempt
 def webhook(request):
