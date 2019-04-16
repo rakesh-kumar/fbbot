@@ -275,13 +275,10 @@ def chathandler(request):
 
 @csrf_exempt
 def webhook(request):
-    if request.method!="POST":
-        #Validate URL
-        # pdb.set_trace()
-        if request.GET['hub.verify_token'] == VALIDATION_TOKEN:
-            return HttpResponse(request.GET['hub.challenge'])
-        return HttpResponse("Failed validation. Make sure the validation tokens match.")
-    return chathandler(request)
+    if request.GET['hub.verify_token'] == 'YOUR_SECRET_TOKEN':
+        return HttpResponse(request.GET['hub.challenge'])
+    else :
+        return HttpResponse('Invalid Token !')
 
 
 
