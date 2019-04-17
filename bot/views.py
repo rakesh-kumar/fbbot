@@ -273,7 +273,7 @@ def chathandler(request):
             if not senderID in chat.conversation:
                 #Initiate user info
                 initiateChat(senderID)
-            respondToClient(senderID,i["message"])
+            respondToClient(senderID,i["message"].get('text'))
     return HttpResponse("It's working")
 
 # def chathandler(request):
