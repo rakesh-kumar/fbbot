@@ -11,7 +11,7 @@ from django.db.utils import OperationalError
 import pdb
 
 
-access_token = "EAAFr2PNn8fsBALeti5LYWolfbITJobJbTYvfOp4aWl0Tem5eUTZCv2EkgpvxhYVHBVMLRW0d9TXtnVLKbIGocNgyHkdhm3B7JxaZCL7ZAv61AMHWUKhMYq3sTqrGzPFpBwhVPmIcplg7lWVY8rny7kGYLYYXONQKudUzI1ZBaXEJPuWJpqoC" 
+access_token = "EAAFr2PNn8fsBAEEPyGGIWjuDf7bLbj9TVwp1et1wLizZAhuAmyZAbMvkSwj2AdaNrybTpVkrlUkQ2HGtJqTAPln4XZBZA7RxtlM4jx0ICSaVGx5lx16m9o7a7yfE0k6qDSFU5uaxy5DdlvTXaGwZAJiKbgJ0xDH1BD12PPhs6qbe3ZBmdUoPdI" 
 VALIDATION_TOKEN="test_token"
 api_key = "b2983ea0f98a6e96191213c7aa1ac3e4"
 
@@ -261,10 +261,12 @@ def respondToClient(senderID,message):
     del chat.attr[senderID]
 
 def chathandler(request):
-    data = json.loads(request.body)
-    print(data)
+    print(request.body)
+    # pdb.set_trace();
+    data = json.loads(request.body.decode('utf-8'))
+    
     # Send text message
-    for i in data["entry"][0]:
+    for i in data["entry"][0]['messeging']:
         # pdb.set_trace()
         if "message" in i:
             senderID=i["sender"]['id']
@@ -293,7 +295,6 @@ def chathandler(request):
 def webhook(request):
     if request.method!="POST":
         #Validate URL
-        # pdb.set_trace()
         print(request.GET['hub.verify_token'])
         if request.GET['hub.verify_token'] == VALIDATION_TOKEN:
             return HttpResponse(request.GET['hub.challenge'])
