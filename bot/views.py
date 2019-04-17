@@ -9,6 +9,7 @@ from chatbot import Chat,reflections,multiFunctionCall
 from .models import *
 from django.db.utils import OperationalError
 import pdb
+import requests
 
 
 access_token = "EAAFr2PNn8fsBAGLdXmVyYDaet56ckILsyXd9CcHMStvzvqH5GRiWLjC55QP11ZAjV0N3uYMEFEJSxEZCULxDbZCK61FGSAaNhBDm6ZA0QDHiZCHnQZCHlWlJkUtLZAUZA1T1fZAYFWUhZBdosWG8J2zB0dRZBtb8HmhqorssmrTxnvOXoVWIZBNGnjj8" 
@@ -31,8 +32,8 @@ def about(query,qtype=None):
         'indent': True,
         'key': api_key,
     }
-    url = service_url + '?' + urllib.urlencode(params)
-    response = json.loads(urllib.urlopen(url).read())
+    url = service_url + '?' + urllib.parse.urlencode(params)
+    response = json.loads(urllib.request.urlopen(url).read())
     if not len(response['itemListElement']):
         return "sorry, I don't know about "+query +"\nIf you know about "+query+" please tell me."
     result = ""
