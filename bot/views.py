@@ -12,7 +12,7 @@ import pdb
 import requests
 
 
-access_token = "EAAFr2PNn8fsBAFHQJvemaASW92m1bK3jGmrqg81w2FKZCdLcVHkM0cJgz2KOmyAFxvSayUBPUTwZAGsqpqao8jZB6jG10G1m1m9lY9sBOPy3BymuEtlQmpwHSaNVWRsTIMZB88Y2VO8xWswu6ZAjPPUa6iss5Bz47115UI1WIUFCaFlUFCuPZA"
+access_token = "EAAFr2PNn8fsBAN0ngFiXRAzViyL8FkLSnG62OWn97ysC5CKuZCDAhrdT3RaM68ZB2x5PVM8AaxqTZBGf57YtGaq59bZArndiB1Fhi6BHtJtWrTd1RIZAnFwcSnVPlhymHtBhDeRphqV3HO3ynofkZBSaZAGshi1ZAjhuIVYmtdG6Rgaa1iIGZCFbl"
 VALIDATION_TOKEN="test_token"
 api_key = "b2983ea0f98a6e96191213c7aa1ac3e4"
 
@@ -274,7 +274,7 @@ def chathandler(request):
             if not senderID in chat.conversation:
                 #Initiate user info
                 initiateChat(senderID)
-            respondToClient(senderID,i["message"]['text'])
+            respondToClient(senderID,"hello")
     return HttpResponse("It's working")
 
 # def chathandler(request):
