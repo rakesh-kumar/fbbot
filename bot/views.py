@@ -27,14 +27,14 @@ def index(request):
 
 
 def about(query,qtype=None):
-    service_url = 'https://kgsearch.googleapis.com/v1/entities:search'
+    service_url = Request('https://kgsearch.googleapis.com/v1/entities:search')
     params = {
         'query': query,
         'limit': 10,
         'indent': True,
         'key': api_key,
     }
-    url = service_url + '?' + urlencode(params)
+    url = str(service_url) + '?' + urlencode(params)
     response = json.loads(urlopen(url).read())
     if not len(response['itemListElement']):
         return "sorry, I don't know about "+query +"\nIf you know about "+query+" please tell me."
@@ -245,8 +245,8 @@ def initiateChat(senderID):
     chat._startNewSession(senderID)
     chat.conversation[senderID].append('Say "Hello"')
     #Get Name of User from facebook
-    url = "https://graph.facebook.com/v2.6/" + senderID +\
-          "?fields=first_name,last_name,gender&access_token="+ access_token
+    url = Request("https://graph.facebook.com/v2.6/" + senderID +\
+          "?fields=first_name,last_name,gender&access_token="+ access_token)
     userInfo=json.load(urlopen(url))
     userInfo["name"] = userInfo["first_name"]
     chat._memory[senderID].update(userInfo)
