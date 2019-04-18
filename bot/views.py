@@ -277,6 +277,9 @@ def chathandler(request):
                 #Initiate user info
                 initiateChat(senderID)
             respondToClient(senderID,i["message"]['text'])
+        else:
+            respondToClient(senderID,"sticker")
+
     return HttpResponse("It's working")
 
 # def chathandler(request):
