@@ -270,6 +270,7 @@ def chathandler(request):
     
     # Send text message
     for i in data["entry"][0]['messaging']:
+        senderID=i["sender"]['id']
         # pdb.set_trace()
         if "message" in i:
             if "text" in i["message"]:
@@ -280,7 +281,7 @@ def chathandler(request):
                 respondToClient(senderID,i["message"]['text'])
 
         else:
-            print("opps! sorry we are unable to respond")
+            respondToClient(senderID,"opps! sorry we are unable to respond")
 
     return HttpResponse("It's working")
 
