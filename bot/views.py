@@ -271,6 +271,8 @@ def chathandler(request):
     # Send text message
     for i in data["entry"][0]['messaging']:
         senderID=i["sender"]['id']
+        sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
+
         # pdb.set_trace()
         if "message" in i:
             if i['message'].get('text'):
@@ -278,8 +280,8 @@ def chathandler(request):
                 if not senderID in chat.conversation:
                     #Initiate user info
                     initiateChat(senderID)
-                respondToClient(senderID,i["message"]['text'])
-            respondToClient(senderID,get_message())
+               respondToClient(senderID,i["message"]['text'])
+        respondToClient(senderID,sample_responses)
 
     return HttpResponse("It's working")
 
