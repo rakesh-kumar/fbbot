@@ -273,32 +273,22 @@ def chathandler(request):
         senderID=i["sender"]['id']
         # pdb.set_trace()
         if "message" in i:
-            if "text" in i["message"]:
+            if i['message'].get('text')::
                 senderID=i["sender"]['id']
                 if not senderID in chat.conversation:
                     #Initiate user info
                     initiateChat(senderID)
-                respondToClient(senderID,i["message"]['text'])
+                    respondToClient(senderID,i["message"]['text'])
 
         else:
             print("opps! sorry we are unable to respond")
 
     return HttpResponse("It's working")
 
-# def chathandler(request):
-#     data = json.loads(request.body)
-#     print(data)
-#     senderID=data["entry"][0]["messaging"][0]["sender"]['id']
-#     recipient = messages.Recipient(recipient_id=senderID)
-#     print(recipient)
-#     # Send text message
-#     for i in data["entry"][0]["messaging"]:
-#         if "message" in i: 
-#             if not senderID in chat.conversation:
-#                 #Initiate user info
-#                 initiateChat()
-#             respondToClient(senderID,i["message"]["text"])
-#     return HttpResponse("It's working")
+def get_message():
+    sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
+    # return selected item to the user
+    return random.choice(sample_responses)
 
 @csrf_exempt
 def webhook(request):
