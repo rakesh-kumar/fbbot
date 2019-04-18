@@ -278,7 +278,7 @@ def chathandler(request):
                 if not senderID in chat.conversation:
                     #Initiate user info
                     initiateChat(senderID)
-                    respondToClient(senderID,i["message"]['text'])
+                respondToClient(senderID,i["message"]['text'])
 
         else:
             print("opps! sorry we are unable to respond")
