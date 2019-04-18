@@ -278,8 +278,10 @@ def chathandler(request):
                     initiateChat(senderID)
                 respondToClient(senderID,i["message"]['text'])
             else:
+                senderID=i["sender"]['id']
                 respondToClient(senderID,"opps! ")           
         else:
+            senderID=i["sender"]['id']
             respondToClient(senderID,"opps! sorry we are unable to respond")
 
     return HttpResponse("It's working")
