@@ -279,9 +279,7 @@ def chathandler(request):
                     #Initiate user info
                     initiateChat(senderID)
                 respondToClient(senderID,i["message"]['text'])
-
-        else:
-            print("opps! sorry we are unable to respond")
+            respondToClient(senderID,get_message())
 
     return HttpResponse("It's working")
 
