@@ -10,6 +10,8 @@ from .models import *
 from django.db.utils import OperationalError
 import pdb
 import requests
+from urllib.request import urlopen
+from urllib.parse import urlencode
 
 
 access_token = "EAAGIQMZBFlAQBAOFpMAyYPg7hDJZBRVXzFnluLYpyyWuBcEzVMXHOY4uYA78bBmGZAYj3JtFIOUHQprZB8xEIKZCSLQ0RI0l6i3cgWWtZCToZCHfXYa8DLWjWA7KGg4UZCS0LMVZBl4UoqZCWZB1lG3OZAoSEZBt0NHyHHgeZB0bbtQMOJscpRSLImJfCh"
@@ -32,8 +34,8 @@ def about(query,qtype=None):
         'indent': True,
         'key': api_key,
     }
-    url = service_url + '?' + urllib.parse.urlencode(params)
-    response = json.loads(urllib.request.urlopen(url).read())
+    url = service_url + '?' + urlencode(params)
+    response = json.loads(urlopen(url).read())
     if not len(response['itemListElement']):
         return "sorry, I don't know about "+query +"\nIf you know about "+query+" please tell me."
     result = ""
@@ -245,7 +247,7 @@ def initiateChat(senderID):
     #Get Name of User from facebook
     url = "https://graph.facebook.com/v2.6/" + senderID +\
           "?fields=first_name,last_name,gender&access_token="+ access_token
-    userInfo=json.load(urllib.urlopen(url))
+    userInfo=json.load(urlopen(url))
     userInfo["name"] = userInfo["first_name"]
     chat._memory[senderID].update(userInfo)
 
