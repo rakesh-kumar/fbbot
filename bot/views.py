@@ -273,7 +273,7 @@ def chathandler(request):
         senderID=i["sender"]['id']
         # pdb.set_trace()
         if "message" in i:
-            if i['message'].get('text')::
+            if i['message'].get('text'):
                 senderID=i["sender"]['id']
                 if not senderID in chat.conversation:
                     #Initiate user info
