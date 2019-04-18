@@ -271,12 +271,13 @@ def chathandler(request):
     # Send text message
     for i in data["entry"][0]['messaging']:
         # pdb.set_trace()
-        if ["message"]['text'] in i:
-            senderID=i["sender"]['id']
-            if not senderID in chat.conversation:
-                #Initiate user info
-                initiateChat(senderID)
-            respondToClient(senderID,i["message"]['text'])
+        if "message" in i:
+            if "text" in i["message"]:
+                senderID=i["sender"]['id']
+                if not senderID in chat.conversation:
+                    #Initiate user info
+                    initiateChat(senderID)
+                respondToClient(senderID,i["message"]['text'])
         else:
             respondToClient(senderID,"opps! sorry we are unable to respond")
 
